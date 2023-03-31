@@ -18,7 +18,7 @@ public:
 		client.setId(stoi(info[0]));
 		client.setName(info[1]);
 		client.setPassword(info[2]);
-		//Client.setbalance(stod(info[3]));
+		Client.setbalance(stod(info[3]));
 		return client;
 	}
 	static Employee parseToEmployee(string line) {
