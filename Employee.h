@@ -1,6 +1,7 @@
 #ifndef EMPLOYEE_H
 #define EMPLOYEE_H
 #pragma once
+#include <fstream>
 #include "Client.h"
 class Employee : public Person
 {
@@ -27,8 +28,32 @@ void display(){
 }
 void addclient(Client& client)
 {
-    allclients.push_back(client);
+    
+		fstream file;
+		file.open("Clients.txt", ios::app);
+		file << client.getId() << '&' << client.getName() << '&'
+			<< client.getPassword() << '&' << client.getBalance() << endl;
+		file.close();
 }
+Client* searchClient(int id) {
+		for (auto it = clients.begin(); it != clients.end(); it++) {
+			if (it->getId() == id)
+				return it._Ptr;
+		}
+
+		return nullptr;
+	}
+
+	void listClient() {
+		for (auto it = clients.begin(); it != clients.end(); it++) {
+			it->Display();
+		}
+	}
+void editClient(int id, string name, string password, double balance) {
+		searchClient(id)->setName(name);
+		searchClient(id)->setPassword(password);
+		searchClient(id)->setBalance(balance);
+	}
 };
 static vector<Employee> allEmployees;
 
