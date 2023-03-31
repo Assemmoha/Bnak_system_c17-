@@ -31,6 +31,9 @@ public:
     {
         setbalance(getBalance()+amount);
     }
+    void Deposit(double amount) {
+		setBalance(getBalance() + amount);
+	}
     void withdraw(double amount)
     {
         if(amount > getBalance())
