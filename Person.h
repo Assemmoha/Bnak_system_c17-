@@ -8,12 +8,14 @@ class Person
 {
      int id;
      string name, password;
+     double balance;
  public:
 Person(string name = "___" , int id = 0 ,  string password = "___")
 {
     setId(id);
     setName(name);
     setPassword(password);
+    setbalance(balance);
 }
 
 void setId(int id)
@@ -51,6 +53,7 @@ void display()
     cout<<"Name is : "<<name<<endl;
     cout<<"ID is : "<<id<<endl;
     cout<<"Password is : "<<password<<endl;
+    cout << "Balance: " << getBalance() << endl;
 }
 };
 
